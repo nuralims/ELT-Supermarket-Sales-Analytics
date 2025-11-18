@@ -1,0 +1,13 @@
+supermarket:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account
+      project: terraform-demo-475203
+      dataset: supermarket
+      keyfile: /opt/airflow/data/terraform-demo-475203-42699b6cec5f.json
+      threads: 4
+      timeout_seconds: 300
+      location: asia-southeast2
+      priority: interactive

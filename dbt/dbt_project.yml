@@ -1,0 +1,12 @@
+name: "my_bigquery_dbt_project"
+version: "1.0.0"
+config-version: 2
+profile: "supermarket" # Harus cocok dengan nama profile di profiles.yml
+
+models:
+  my_bigquery_dbt_project:
+    +materialized: view # Default materialization
+    staging:
+      +schema: staging_data
+    marts:
+      +schema: marts_data

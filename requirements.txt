@@ -1,0 +1,7 @@
+pandasql
+fastparquet
+pyarrow
+jupyter
+gspread
+dbt-core==1.7.5
+dbt-bigquery==1.7.5

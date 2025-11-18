@@ -1,0 +1,12 @@
+.env
+tmp_pipiline
+data\retail-dataset.csv
+data\terraform-demo-475203-42699b6cec5f.json
+logs
+models
+dags\__pycache__
+dags\csv_to_pg.py
+dags\gsheet_bigquery.py
+dags\pg_to_bigquery.py
+config
+plugins
