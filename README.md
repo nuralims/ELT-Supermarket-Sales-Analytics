@@ -9,27 +9,27 @@ Proyek ini mengimplementasikan alur kerja Extract, Load, dan Transform (ELT) unt
 Alur kerja ini diorkestrasi oleh Airflow dan memastikan data mengalir secara konsisten dari sumber ke data warehouse analitik.
 
 1. **Extract/Load (Airflow Python):**
-   Data mentah (CSV) dibaca, dibersihkan (terutama penamaan kolom menjadi snake_case), dan di-load ke dalam staging database lokal (PostgreSQL).
+   Data mentah (CSV) dibaca, dibersihkan (terutama penamaan kolom menjadi snake_case), dan di-load ke dalam staging database lokal (PostgreSQL).<br>
 
-   - [Supermarket (.CSV)](data/supermarket.csv):
-     ![Supermarket.csv](img/csv.png)
-   - Raw Supermarket di Database Lokal (PostgresSQL):
+   - [Supermarket (.CSV)](data/supermarket.csv):<br>
+     ![Supermarket.csv](img/csv.png)<br>
+   - Raw Supermarket di Database Lokal (PostgresSQL):<br>
      ![Database Lokal (PostgresSQL)](img/pg.png)
 
 2. **Load (Airflow Python):**
-   Data yang sudah bersih ditarik dari PostgreSQL dan dimuat ke BigQuery. Data ini disimpan sebagai tabel data mentah: (`raw_transaction_supermarket`).
+   Data yang sudah bersih ditarik dari PostgreSQL dan dimuat ke BigQuery. Data ini disimpan sebagai tabel data mentah: (`raw_transaction_supermarket`).<br>
 
-   - Raw Supermarket di BigQuery:
+   - Raw Supermarket di BigQuery:<br>
      ![BigQuery](img/raw_supermarket_.png)
 
 3. **Transform (Airflow Bash/dbt):**
-   dbt mengambil data di BigQuery dan membangun model data analitik:
-   - Lapisan `staging_data`: Pembersihan mendalam dan standardisasi data.
-     ![staging_data](img/staging.png)
-   - Lapisan `marts_data`: Pembuatan tabel dimensi (`dim_supermarket_outlet`) dan tabel fakta (`fact_supermarket_sales`) yang siap untuk analisis dan visualisasi.
-     1. `dim_supermarket_outlet`:
-        ![dim_supermarket_outlets](img/dim_supermarket.png)
-     2. `fact_supermarket_sales`:
+   dbt mengambil data di BigQuery dan membangun model data analitik:<br>
+   - Lapisan `staging_data`: Pembersihan mendalam dan standardisasi data.<br>
+     ![staging_data](img/staging.png)<br>
+   - Lapisan `marts_data`: Pembuatan tabel dimensi (`dim_supermarket_outlet`) dan tabel fakta (`fact_supermarket_sales`) yang siap untuk analisis dan visualisasi.<br>
+     1. `dim_supermarket_outlet`:<br>
+        ![dim_supermarket_outlets](img/dim_supermarket.png)<br>
+     2. `fact_supermarket_sales`:<br>
         ![fact_supermarket_sales](img/fact_supermarket.png)
 
 ## ⚙️ Prasyarat & Sumber Daya
