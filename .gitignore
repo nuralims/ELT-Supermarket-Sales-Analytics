@@ -3,9 +3,9 @@ tmp_pipiline
 data/retail-dataset.csv
 logs
 models
-./dags/__pycache__
-./dags/csv_to_pg.py
-./dags/gsheet_bigquery.py
-./dags/pg_to_bigquery.py
+dags/__pycache__
+dags/csv_to_pg.py
+dags/gsheet_bigquery.py
+dags/pg_to_bigquery.py
 config
 plugins

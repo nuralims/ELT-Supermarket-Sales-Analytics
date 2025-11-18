@@ -11,15 +11,15 @@ Alur kerja ini diorkestrasi oleh Airflow dan memastikan data mengalir secara kon
 1. **Extract/Load (Airflow Python):**
    Data mentah (CSV) dibaca, dibersihkan (terutama penamaan kolom menjadi snake_case), dan di-load ke dalam staging database lokal (PostgreSQL).
 
-   - [Supermarket (.CSV)](data/supermarket.csv)
+   - [Supermarket (.CSV)](data/supermarket.csv):
      ![Supermarket.csv](img/csv.png)
-   - Raw Supermarket di Database Lokal (PostgresSQL)
+   - Raw Supermarket di Database Lokal (PostgresSQL):
      ![Database Lokal (PostgresSQL)](img/pg.png)
 
 2. **Load (Airflow Python):**
    Data yang sudah bersih ditarik dari PostgreSQL dan dimuat ke BigQuery. Data ini disimpan sebagai tabel data mentah: (`raw_transaction_supermarket`).
 
-   - Raw Supermarket di BigQuery
+   - Raw Supermarket di BigQuery:
      ![BigQuery](img/raw_supermarket_.png)
 
 3. **Transform (Airflow Bash/dbt):**
@@ -27,9 +27,9 @@ Alur kerja ini diorkestrasi oleh Airflow dan memastikan data mengalir secara kon
    - Lapisan `staging_data`: Pembersihan mendalam dan standardisasi data.
      ![staging_data](img/staging.png)
    - Lapisan `marts_data`: Pembuatan tabel dimensi (`dim_supermarket_outlet`) dan tabel fakta (`fact_supermarket_sales`) yang siap untuk analisis dan visualisasi.
-     1. `dim_supermarket_outlet`
-        ![dim_supermarket_outlet](img/dim_supermarket.png)
-     2. `fact_supermarket_sales`
+     1. `dim_supermarket_outlet`:
+        ![dim_supermarket_outlets](img/dim_supermarket.png)
+     2. `fact_supermarket_sales`:
         ![fact_supermarket_sales](img/fact_supermarket.png)
 
 ## ⚙️ Prasyarat & Sumber Daya
